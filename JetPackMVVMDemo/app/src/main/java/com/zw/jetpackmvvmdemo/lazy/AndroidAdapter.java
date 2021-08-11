@@ -1,0 +1,75 @@
+package com.zw.jetpackmvvmdemo.lazy;
+
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+
+import com.zw.jetpackmvvmdemo.R;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+public class AndroidAdapter extends RecyclerView.Adapter<AndroidAdapter.VHolder> {
+
+    private List<JueJinBean.DataBean> list = new ArrayList<>();
+    private OnItemClickListener listener;
+
+    @NonNull
+    @Override
+    public VHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_jue_jin, parent, false);
+        return new VHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull VHolder holder, final int position) {
+        holder.title.setText(list.get(position).getArticle_info().getTitle());
+        holder.content.setText(list.get(position).getArticle_info().getBrief_content());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (listener != null) {
+                    listener.onItemClick(list.get(position), position);
+                }
+            }
+        });
+    }
+
+    @Override
+    public int getItemCount() {
+        return list.size();
+    }
+
+    public void setNewData(List<JueJinBean.DataBean> stories) {
+        list.clear();
+        list.addAll(stories);
+        notifyDataSetChanged();
+
+    }
+
+    public void setOnItemListener(OnItemClickListener listener) {
+        this.listener = listener;
+    }
+
+
+    public class VHolder extends RecyclerView.ViewHolder {
+        public TextView title;
+        public TextView content;
+
+        public VHolder(View itemView) {
+            super(itemView);
+            title = itemView.findViewById(R.id.title);
+            content = itemView.findViewById(R.id.content);
+        }
+    }
+
+    public interface OnItemClickListener {
+        void onItemClick(JueJinBean.DataBean bean, int position);
+    }
+}

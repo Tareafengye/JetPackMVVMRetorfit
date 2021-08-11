@@ -1,0 +1,3 @@
+rootProject.name = "JetPackMVVMDemo"
+include ':app'
+include ':mylibrary'
