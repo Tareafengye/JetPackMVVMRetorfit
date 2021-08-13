@@ -2,6 +2,7 @@ package com.zw.jetpackmvvmdemo.base
 
 import android.content.Context
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.zw.jetpackmvvmdemo.BuildConfig
 import com.zw.jetpackmvvmdemo.MyApplication
@@ -54,6 +55,10 @@ abstract class BaseNoModelActivity : AppCompatActivity() {
             loadingDialog!!.setLoadingMsg(msg)
             loadingDialog!!.show()
         }
+    }
+
+    protected fun showToast(msg:String?){
+        Toast.makeText(this,msg,Toast.LENGTH_LONG).show()
     }
 
     /**

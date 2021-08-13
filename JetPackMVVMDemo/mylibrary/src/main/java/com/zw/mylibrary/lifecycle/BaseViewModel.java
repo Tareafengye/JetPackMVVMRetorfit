@@ -21,6 +21,8 @@ public abstract class BaseViewModel extends ViewModel {
      * 管理RxJava请求
      */
     private CompositeDisposable compositeDisposable;
+
+    protected DataRepository mRepository;
     /**
      * 用来通知 Activity／Fragment 是否显示等待Dialog
      */
@@ -29,8 +31,6 @@ public abstract class BaseViewModel extends ViewModel {
 //    protected fun getRepository(): DataRepository {
 //        return (application as MyApplication).getRepository()
 //    }
-
-
 
 
     /**
@@ -68,6 +68,10 @@ public abstract class BaseViewModel extends ViewModel {
         }
         showDialog = null;
         error = null;
+    }
+
+    public void setRepository(DataRepository dataRepository) {
+        mRepository = dataRepository;
     }
 
 }

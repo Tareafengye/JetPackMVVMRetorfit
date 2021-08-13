@@ -5,19 +5,18 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 /**
- * @ProjectName: JetPackMVVMDemo
- * @Package: com.zw.mylibrary.room.entity
- * @ClassName: UserInfoEntity
- * @Description: Entity代表数据库的表，更新表的时候需要在DataBase中更新版本号
+ *
+ * @ClassName: LoginUserEntity
+ * @Description: 类作用描述
  * @Author: ltt
- * @CreateDate: 2021/8/10 14:29
+ * @CreateDate: 2021/8/13 16:19
  * @UpdateUser: 更新者
- * @UpdateDate: 2021/8/10 14:29
+ * @UpdateDate: 2021/8/13 16:19
  * @UpdateRemark: 更新说明
  * @Version: 1.0
  */
 @Entity
-class UserInfoEntity {
+class LoginUserEntity {
 
     @NonNull
     @PrimaryKey
@@ -33,5 +32,6 @@ class UserInfoEntity {
     var publicName: String? = null
     var token: String? = null
     var type = 0
+
 
 }

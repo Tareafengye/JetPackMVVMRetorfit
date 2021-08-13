@@ -1,6 +1,7 @@
 package com.zw.jetpackmvvmdemo.base;
 
 import android.os.Bundle;
+
 import androidx.annotation.Nullable;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
@@ -57,6 +58,7 @@ public abstract class BaseActivity<VM extends BaseViewModel> extends BaseNoModel
                 showError(obj);
             }
         });
+        viewModel.setRepository(getRepository());
     }
 
     /**

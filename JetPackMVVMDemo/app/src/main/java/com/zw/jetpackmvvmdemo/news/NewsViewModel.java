@@ -31,10 +31,9 @@ public class NewsViewModel extends BaseViewModel {
     protected MutableLiveData<ArrayList<WanAndroidBean>> android = new MutableLiveData<>();
 
 
-
-
     /**
      * 加载wanandroid列表数据
+     *
      * @param dataRepository
      */
     public void getWanAndroid(DataRepository dataRepository) {

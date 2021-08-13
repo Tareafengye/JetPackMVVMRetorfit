@@ -48,4 +48,10 @@ interface UserInfoDao {
     @WorkerThread
     @Query("DELETE FROM UserInfoEntity")
     fun deleteAll()
+
+
+
+    @get:WorkerThread
+    @get:Query("select nickname from UserInfoEntity limit 1")
+    val niceName:String
 }

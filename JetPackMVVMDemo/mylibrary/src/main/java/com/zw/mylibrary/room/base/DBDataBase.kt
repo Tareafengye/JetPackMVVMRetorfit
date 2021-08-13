@@ -8,6 +8,8 @@ import androidx.room.TypeConverters
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.zw.mylibrary.room.dao.UserInfoDao
+import com.zw.mylibrary.room.dao.loginUserDao
+import com.zw.mylibrary.room.entity.LoginUserEntity
 import com.zw.mylibrary.room.entity.UserInfoEntity
 import com.zw.mylibrary.room.help.DBConverters
 
@@ -15,7 +17,7 @@ import com.zw.mylibrary.room.help.DBConverters
  * entityes中包含表、版本号、日志等
  */
 @TypeConverters(DBConverters::class)
-@Database(entities = [UserInfoEntity::class],version = 1,exportSchema = true)
+@Database(entities = [UserInfoEntity::class, LoginUserEntity::class],version = 1,exportSchema = true)
 abstract class DBDataBase: RoomDatabase() {
     companion object{
         fun getDataBase(context: Context): DBDataBase {
@@ -30,4 +32,6 @@ abstract class DBDataBase: RoomDatabase() {
         }
     }
     abstract fun UserInfoDao():UserInfoDao
+
+    abstract fun loginDao():loginUserDao
 }
